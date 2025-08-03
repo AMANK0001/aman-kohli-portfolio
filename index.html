@@ -216,8 +216,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4rem;
-            color: var(--accent-color);
+            overflow: hidden;
+        }
+
+        .profile-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
         }
 
         .about-content h3 {
@@ -272,6 +278,16 @@
             border-radius: 25px;
             font-size: 0.9rem;
             transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-tag img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+            border-radius: 3px;
         }
 
         .skill-tag:hover {
@@ -418,7 +434,123 @@
             font-weight: 600;
         }
 
-        /* Contact Section */
+        /* Certifications Section - Compact Badge Style */
+        .certification-container {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .certification-badge {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            background: var(--secondary-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid var(--accent-bg);
+            max-width: 600px;
+            transition: transform 0.3s ease;
+        }
+
+        .certification-badge:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-shadow);
+        }
+
+        .badge-image {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            border-radius: 10px;
+            background: white;
+            padding: 10px;
+        }
+
+        .badge-info h3 {
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .badge-info p {
+            color: var(--secondary-text);
+            margin-bottom: 1rem;
+        }
+
+        .badge-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .programming-skills {
+            background-image: url('assets/images/skills/Programming - Microsoft SQL server - 3.png');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .programming-skills::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(26, 26, 26, 0.8);
+            border-radius: 15px;
+        }
+
+        .programming-skills > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-management-skills {
+            background-image: url('assets/images/skills/Project Management - 1 (Jira).png');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .project-management-skills::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(26, 26, 26, 0.8);
+            border-radius: 15px;
+        }
+
+        .project-management-skills > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .tools-skills {
+            background-image: url('assets/images/skills/Tool - 3.png');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .tools-skills::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(26, 26, 26, 0.8);
+            border-radius: 15px;
+        }
+
+        .tools-skills > * {
+            position: relative;
+            z-index: 1;
+        }
         .contact-content {
             text-align: center;
             max-width: 600px;
@@ -566,6 +698,17 @@
             .timeline-item {
                 margin-left: 1rem;
             }
+
+            .certification-badge {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .badge-image {
+                width: 100px;
+                height: 100px;
+            }
         }
 
         /* Smooth scrolling */
@@ -617,7 +760,7 @@
         <div class="about-grid">
             <div class="about-image">
                 <div class="profile-placeholder">
-                    <i class="fas fa-user"></i>
+                    <img src="assets/images/Profile/profile.jpg" alt="Aman Kohli - Professional Profile Photo" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-user\' style=\'font-size: 4rem; color: var(--accent-color);\'></i>';">
                 </div>
             </div>
             <div class="about-content">
@@ -644,29 +787,59 @@
     <section id="skills" class="section">
         <h2 class="section-title">Skills & Tools</h2>
         <div class="skills-grid">
-            <div class="skill-category">
+            <div class="skill-category programming-skills">
                 <h3><i class="fas fa-code"></i> Programming</h3>
                 <div class="skill-tags">
-                    <span class="skill-tag">Microsoft SQL Server</span>
-                    <span class="skill-tag">MySQL</span>
+                    <span class="skill-tag">
+                        <img src="assets/images/skills/Programming - Microsoft SQL server - 3.png" alt="SQL Server">
+                        Microsoft SQL Server
+                    </span>
+                    <span class="skill-tag">
+                        <img src="assets/images/skills/Programming - MySQL - 2.png" alt="MySQL">
+                        MySQL
+                    </span>
                 </div>
             </div>
-            <div class="skill-category">
+            <div class="skill-category project-management-skills">
                 <h3><i class="fas fa-tasks"></i> Project Management</h3>
                 <div class="skill-tags">
-                    <span class="skill-tag">Jira</span>
-                    <span class="skill-tag">Azure DevOps</span>
-                    <span class="skill-tag">Asana</span>
+                    <span class="skill-tag">
+                        <img src="assets/images/skills/Project Management - 1 (Jira).png" alt="Jira">
+                        Jira
+                    </span>
+                    <span class="skill-tag">
+                        <img src="assets/images/skills/Project Management - 2 (Azure DevOps).png" alt="Azure DevOps">
+                        Azure DevOps
+                    </span>
+                    <span class="skill-tag">
+                        <img src="assets/images/skills/Project Management - 3 (Asana).png" alt="Asana">
+                        Asana
+                    </span>
                 </div>
             </div>
-            <div class="skill-category">
+            <div class="skill-category tools-skills">
                 <h3><i class="fas fa-tools"></i> Tools</h3>
                 <div class="skill-tags">
-                    <span class="skill-tag">Tool 3</span>
-                    <span class="skill-tag">Tool 4</span>
-                    <span class="skill-tag">Tool 6</span>
-                    <span class="skill-tag">Tool 7</span>
-                    <span class="skill-tag">Tool 8</span>
+                    <span class="skill-tag">
+                        <img src="assets/images/skills/Tool - 3.png" alt="Tool 3">
+                        Tool 3
+                    </span>
+                    <span class="skill-tag">
+                        <img src="assets/images/skills/Tool - 4.png" alt="Tool 4">
+                        Tool 4
+                    </span>
+                    <span class="skill-tag">
+                        <img src="assets/images/skills/Tool - 6.png" alt="Tool 6">
+                        Tool 6
+                    </span>
+                    <span class="skill-tag">
+                        <img src="assets/images/skills/Tool - 7.png" alt="Tool 7">
+                        Tool 7
+                    </span>
+                    <span class="skill-tag">
+                        <img src="assets/images/skills/Tool - 8.png" alt="Tool 8">
+                        Tool 8
+                    </span>
                 </div>
             </div>
         </div>
@@ -678,7 +851,7 @@
         <div class="projects-grid">
             <div class="project-card">
                 <div class="project-image">
-                    <i class="fas fa-chart-bar"></i>
+                    <img src="assets/images/dashboards/Power Bi Dashboard - 1.png" alt="Power BI Dashboard 1" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Power BI Dashboard 1</h3>
@@ -695,7 +868,7 @@
             </div>
             <div class="project-card">
                 <div class="project-image">
-                    <i class="fas fa-chart-line"></i>
+                    <img src="assets/images/dashboards/Power Bi Dashboard - 2.png" alt="Power BI Dashboard 2" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Power BI Dashboard 2</h3>
@@ -716,22 +889,16 @@
     <!-- Certifications Section -->
     <section id="certifications" class="section">
         <h2 class="section-title">Professional Certifications</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-image">
-                    <i class="fas fa-certificate"></i>
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">Professional Scrum Master I (PSM I)</h3>
-                    <p class="project-description">
-                        Certified Professional Scrum Master demonstrating fundamental level of Scrum mastery. 
-                        Validates knowledge of Scrum framework and ability to apply it in real-world scenarios.
-                    </p>
-                    <div class="project-tech">
+        <div class="certification-container">
+            <div class="certification-badge">
+                <img src="assets/images/certifications/Professional Certification PSM I - 4.png" alt="Professional Scrum Master I Certification" class="badge-image">
+                <div class="badge-info">
+                    <h3>Professional Scrum Master I (PSM I)</h3>
+                    <p>Certified July 2025</p>
+                    <div class="badge-tags">
                         <span class="tech-tag">Scrum</span>
                         <span class="tech-tag">Agile</span>
                         <span class="tech-tag">Project Management</span>
-                        <span class="tech-tag">July 2025</span>
                     </div>
                 </div>
             </div>
@@ -764,15 +931,6 @@
                     <li>Analyzed competitor trends resulting in revamped GTM plan and content refresh</li>
                 </ul>
             </div>
-            <div class="timeline-item">
-                <div class="timeline-date">Jan 2022 – Mar 2022</div>
-                <div class="timeline-title">Growth Strategy and Optimization Intern</div>
-                <div class="timeline-company">Travclan, Delhi, India</div>
-                <ul class="timeline-achievements">
-                    <li>Created Excel-based funnel tools reducing sales response time by 25%</li>
-                    <li>Optimized sales qualification processes for improved conversion rates</li>
-                </ul>
-            </div>
         </div>
     </section>
 
@@ -782,7 +940,7 @@
         <div class="projects-grid">
             <div class="project-card">
                 <div class="project-image">
-                    <i class="fab fa-amazon"></i>
+                    <img src="assets/images/marketing/Amazon Affiliate.png" alt="Amazon Affiliate Program" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Amazon Affiliate Program</h3>
@@ -806,18 +964,18 @@
         <div class="projects-grid">
             <div class="project-card">
                 <div class="project-image">
-                    <i class="fas fa-clock"></i>
+                    <img src="assets/images/mean_time/Mean_time -1.JPG" alt="Mean Time Standup Analysis" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
                 </div>
                 <div class="project-content">
-                    <h3 class="project-title">Mean Time Standup Analysis</h3>
+                    <h3 class="project-title">Standup During Mean Time</h3>
                     <p class="project-description">
-                        Comprehensive analysis of mean time metrics for standup meetings and operational processes, 
-                        providing insights into efficiency improvements and performance optimization.
+                        Fun project capturing standup moments during mean time - a lighthearted look at 
+                        daily routines and personal moments, showcasing creativity and humor in everyday situations.
                     </p>
                     <div class="project-tech">
-                        <span class="tech-tag">Time Analysis</span>
-                        <span class="tech-tag">Performance Metrics</span>
-                        <span class="tech-tag">Process Optimization</span>
+                        <span class="tech-tag">Creative</span>
+                        <span class="tech-tag">Fun Project</span>
+                        <span class="tech-tag">Personal</span>
                     </div>
                 </div>
             </div>
